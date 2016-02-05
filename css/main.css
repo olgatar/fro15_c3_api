@@ -1,0 +1,107 @@
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+html, body {
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+body {
+    font-family: 'Poiret One', cursive, sans-serif;
+    background: url(../img/bg2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color: #d3d3d3;
+}
+
+.page-header {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+h2, h4 {
+  color: #d3d3d3;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 60px;
+}
+
+.panel {
+  margin-top: 15px;
+  background-color: #000;
+  border: none !important;
+  font-size: 1em;
+}
+
+ul {
+  padding: 0 10px;
+}
+
+button {
+  padding: 5px 5px;
+  font-size: 0.6em;
+  font-weight: bold;
+  color: #fff;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: #fff;
+  padding: 0 !important;
+  text-decoration: none !important;
+}
+
+a:visited {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: blue;
+  font-weight: bold;
+  text-decoration: none !important;
+}
+
+a:active {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  color: #d3d3d3;
+  height: 40px;
+  background-color: #000;
+
+}
+
+.footer-paragraph {
+  margin: 0 auto;
+  padding: 10px 0px;
+  font-size: 1em;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 640px)  {
+
+  .panel {
+    font-size: 1.6em;
+  }
+
+  button {
+    font-size: 0.9em;
+  }
+
+}
