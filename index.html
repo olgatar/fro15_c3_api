@@ -23,33 +23,31 @@
           <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
             <div id="info-div" class="info-panel panel panel-default">
               <div class="text-center panel-body">
-                <span>Search music event by date or the venue closest to your location</span>
+                <span>Search music event by date or by the Debaser Venue closest to your location</span>
               </div>
             </div>
 
             <div class="api-buttons panel panel-default">
               <div class="row text-center panel-body">
-                <input type="date" id="input-date" data-date-inline-picker="true" class="text-center col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1" placeholder="Date"/>
-                <button type="submit" id="search-btn" class="btn btn-default col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">Search</button>
-                <div class="venue-filter col-xs-3 col-xs-offset-1 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
-                  <button id="venue-filter-btn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Filter by Venue <span class="caret"></span>
+                <input type="date" id="input-date" data-date-inline-picker="true" class="text-center col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1" placeholder="Date"/>
+                <div class="venue-filter col-xs-4 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1">
+                  <button id="venue-filter-btn" type="button" class="btn btn-default dropdown-toggle pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Debaser Venue <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu">
-                    <li class="text-center"><a href="#">Debaser Medis</a></li>
-                    <li class="text-center"><a href="#">Debaser Strand</a></li>
+                  <ul class="dropdown-menu pull-left">
+                    <li id="medis" class="text-center"><a href="#">Debaser Medis</a></li>
+                    <li id="strand" class="text-center"><a href="#">Debaser Strand</a></li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <!-- <div class="main-panel panel panel-default">
-              <div class="panel-body">
-                <div class="">
+          <div id="events-div" class="">
+            <ul class="list-group" id="events-ul">
 
-              </div>
-            </div>
-          </div> -->
+            </ul>
+
+          </div>
         </div>
       </div>
       </div>
