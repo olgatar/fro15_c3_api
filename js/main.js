@@ -3,6 +3,7 @@
 /* Example URL to Debaser API
 /* http://www.debaser.se/debaser/api/?version=2&method=getevents&venue=...&from=...&to=...&format=json */
   var debaserURL;
+
 /* Set the default today's date for date input */
 /* followed an example found on stackoverflow */
 $(document).ready(function() {
@@ -33,18 +34,15 @@ $(document).ready(function() {
     getEvents(debaserURL);
 });
 
-
-
-
+// Function to get all music events as callback from Debaser API
 function getEvents(debaserURL) {
   $.getJSON(debaserURL, function(data) {
     var html = '';
     $.each(data, function(i, data){
 
-      $('#events-ul').empty();
-      html += '<li class="list-group-item text-center"><span class="info-span">'+data.Event+'</span><br>'
-      html += '<span class="info-span">'+data.Admission+'</span><br>'
-      html += '<span class="info-span">Venue: '+data.Venue+'</span><br>'
+      html += '<li class="list-group-item text-center"><span class="info-span"><h3>'+data.Event+'</h3></span>'
+      html += '<em><span class="info-span">'+data.Admission+'</em></span><br>'
+      html += '<em><span class="info-span">Venue: '+data.Venue+'</em></span><br>'
       html += '<a href="' + data.EventUrl + '" target="_blank"><img src="' + data.ImageUrl + '"></a></li>'
 
     });
@@ -52,6 +50,26 @@ function getEvents(debaserURL) {
   });
 };
 
+// A modified getEvents function to fix the Debasers bug with callback for only
+// Debaser Strand events as it is still gets all events even if the URL calls only
+// for Strand events
+function getStrandEvents(debaserURL) {
+  $.getJSON(debaserURL, function(data) {
+    var html = '';
+    $.each(data, function(i, data){
+
+      if (data.Venue == "Strand") {
+        html += '<li class="list-group-item text-center"><span class="info-span"><h3>'+data.Event+'</h3></span>'
+        html += '<em><span class="info-span">'+data.Admission+'</em></span><br>'
+        html += '<em><span class="info-span">Venue: '+data.Venue+'</em></span><br>'
+        html += '<a href="' + data.EventUrl + '" target="_blank"><img src="' + data.ImageUrl + '"></a></li>'
+      }
+    });
+    $('#events-ul').html(html);
+  });
+};
+
+// Get Debasers API music events every time the date in Date Input field change
 $("#input-date").change(function() {
     $('#events-ul').empty();
 
@@ -61,11 +79,12 @@ $("#input-date").change(function() {
     var day=dateChoice[2];
     var date = year + month + day;
 
+    $("#input-date").blur();
     debaserURL = 'http://www.debaser.se/debaser/api/?version=2&method=getevents&venue=medis&venue=strand&from='+date+'&to='+date+'&format=json&callback=?';
     getEvents(debaserURL);
-
 });
 
+// Trigger to filter the music events depending on the user's Venue choice
 $("li").click(function() {
     $('#events-ul').empty();
     var venue = $(this).attr('id');
@@ -76,7 +95,12 @@ $("li").click(function() {
     var day=dateChoice[2];
     var date = year + month + day;
 
-    debaserURL = 'http://www.debaser.se/debaser/api/?version=2&method=getevents&venue='+venue+'&from='+date+'&to='+date+'&format=json&callback=?';
-    getEvents(debaserURL);
-
+    if (venue == "medis") {
+      debaserURL = 'http://www.debaser.se/debaser/api/?version=2&method=getevents&venue='+venue+'&from='+date+'&to='+date+'&format=json&callback=?';
+      getEvents(debaserURL);
+    }
+    else {
+      debaserURL = 'http://www.debaser.se/debaser/api/?version=2&method=getevents&venue='+venue+'&from='+date+'&to='+date+'&format=json&callback=?';
+      getStrandEvents(debaserURL);
+    }
 });
