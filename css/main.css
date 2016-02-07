@@ -13,7 +13,7 @@ body {
     font-family: 'Poiret One', cursive, sans-serif;
     background: url(../img/bg2.jpg) no-repeat center center fixed;
     background-size: cover;
-    color: #d3d3d3;
+    color: #fff;
 }
 
 .page-header {
@@ -23,8 +23,12 @@ body {
   border: none;
 }
 
-h2, h4 {
-  color: #d3d3d3;
+h2 {
+  color: #fff;
+}
+
+h3 {
+  color: #000;
 }
 
 .container-fluid {
@@ -53,6 +57,7 @@ button {
 
 #venue-filter-btn {
   font-size: 0.8em !important;
+  border-radius: 25px !important;
 }
 
 ul {
@@ -65,7 +70,6 @@ li a  {
 }
 
 li {
-
   margin-bottom: 10px;
 }
 
@@ -76,11 +80,11 @@ img {
 }
 
 #input-date {
-  border-radius: 8px;
+  border-radius: 25px !important;
   font-weight: bold;
-  color: black;
+  color: #000;
   font-size: 0.6em;
-  padding: 0 5px;
+  padding: 5px 5px;
 }
 
 #info-div {
@@ -119,7 +123,7 @@ a:active {
 
 footer {
   text-align: center;
-  color: #d3d3d3;
+  color: #fff;
   height: 40px;
   background-color: #6C7A89;
 
